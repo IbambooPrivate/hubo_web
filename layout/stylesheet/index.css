@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+html,body{height:100%;}
+body{min-width:1200px;min-height:600px;position:relative;background:white;}
+
+
+nav{width:18%;height:100%;position:absolute;top:0;left:0;}
+/*LOGO*/
+@keyframes logo{
+	from{transform:rotateY(180deg);opacity:0;}to{transform:rotateY(0);opacity:1;}
+}
+h1.logo{text-align:center;margin-top:40px;}
+h1.logo img{width:34%;transform-origin: 50px 50px;animation:logo 2s forwards;}
+
+/*NAVIGATION*/
+@keyframes navigation{
+	from{transform:translateX(10px);opacity:0;}to{transform:translateX(0);opacity:1;}
+}
+.navigation{width:80px;margin:0 auto;padding-top:40px;}
+.navigation li{animation:navigation 1s forwards;opacity:0;margin-top:30px;}
+.navigation li:nth-child(1){animation-delay:.6s;}
+.navigation li:nth-child(2){animation-delay:.8s;}
+.navigation li:nth-child(3){animation-delay:1s;}
+.navigation li:nth-child(4){animation-delay:1.2s;}
+.navigation li a{display:block;height:36px;background:url(../images/nav_sprite.png) no-repeat;transition:background .4s;}
+.navigation li a:hover{background-color:#F6F6F6;}
+.navigation .about a{background-position:22px -5px;}
+.navigation .about a:hover,.navigation .cur[class~='about'] a{background-position:22px -41px;}
+.navigation .services a{background-position:-83px -5px;}
+.navigation .services a:hover,.navigation .cur[class~='services'] a{background-position:-83px -41px;}
+.navigation .jobs a{background-position:-189px -5px;}
+.navigation .jobs a:hover,.navigation .cur[class~='jobs'] a{background-position:-189px -41px;}
+.navigation .contact a{background-position:-295px -5px;}
+.navigation .contact a:hover,.navigation .cur[class~='contact'] a{background-position:-295px -41px;}
+@keyframes copyright{
+	from{opacity:0;}to{opacity:1;}
+}
+.copyright {text-align:center;color:#999;position:absolute;bottom:5%;width:100%;opacity:0;animation:copyright 2s 1s forwards;}
+
+
+/*ALL SCREEN*/
+section{width:82%;height:100%;position:absolute;top:0;right:0;background:#EEE;overflow:hidden;z-index:1;}
+.all_screen{position:absolute;width:100%;height:100%;overflow:visible;transition:top 1s ease-in-out;top:0%;}
+.all_screen article{width:100%;height:100%;position:relative;overflow: hidden;}
+.all_screen article:nth-child(4){background:brown;}
+.parallax_content {width:100%;height:100%;position:absolute;}
+.parallax{width:106%;height:106%;top:-3%;left:-3%;position:absolute;background:no-repeat center;background-size:cover;z-index:-1;}
+/*SCREEN 1*/
+.screen1 .parallax{background-image:url(../images/screen1_bg.jpg)}
+.screen1 .parallax_content{
+	/*background:url(../images/screen1_bg.jpg) no-repeat center;background-size:cover;*/
+	display:-moz-box;		-moz-box-pack:center;		-moz-box-align:center;
+	display:-webkit-box;	-webkit-box-pack:center;	-webkit-box-align:center;
+	display:box;			box-pack:center;			box-align:center;
+}
+.screen1 .parallax_content div{width:45%;color:white;}
+.screen1 .parallax_content div h2{font-size:36px;text-align:center;font-weight:bold;transition:.4s .8s ease-in-out;opacity:0;transform:translateX(-10%);}
+.screen1 .parallax_content div p{text-indent:2em;line-height:2;font-size:16px;margin-top:2em;transition:.6s 1s ease-in-out;opacity:0;transform:translateX(-10%);}
+.screen1_final .parallax_content div h2{opacity:1;transform:none;}
+.screen1_final .parallax_content div p{opacity:1;transform:none;}
+/*SCREEN 2*/
+.screen2{}
+.screen2 ul{position:relative;height:100%;width:100%;overflow:hidden;}
+.screen2 li{width:20%;height:100%;float:left;overflow:hidden;transition:1.8s;transform:skew(0,2deg) scale(0.9);opacity:0;}
+.screen2 li .scr2_item_bg{height:63%;background-size:cover;background-repeat:no-repeat;background-position:center;transition:.7s;}
+.scr2_item1 .scr2_item_bg{background-image:url(../images/screen2_img1.jpg);}
+.scr2_item2 .scr2_item_bg{background-image:url(../images/screen2_img2.jpg);}
+.scr2_item3 .scr2_item_bg{background-image:url(../images/screen2_img3.jpg);}
+.scr2_item4 .scr2_item_bg{background-image:url(../images/screen2_img4.jpg);}
+.scr2_item5 .scr2_item_bg{background-image:url(../images/screen2_img5.jpg);}
+.screen2 li div{
+	height:37%;background:#F6F6F6;transition:1s;
+	display:-moz-box;		-moz-box-pack:center;		-moz-box-align:center;
+	display:-webkit-box;	-webkit-box-pack:center;	-webkit-box-align:center;
+	display:box;			box-pack:center;			box-align:center;
+}
+.screen2 li:nth-child(odd) div{background:#EEE;}
+.screen2 li:hover div{height:54%;background:#0e953c;}
+.screen2 li:hover div p{color:white;}
+.screen2 li:hover div p span{opacity:1;height:110px;}
+.screen2 li:hover .scr2_item_bg{height:46%;}
+.screen2 li div p{margin:0 10%;color:#999;}
+.screen2 li div p em{display:block;text-align:center;font-style:normal;font-size:14px;}
+.screen2 li div p strong{display:block;text-align:center;font-size:18px;padding:.5em 0;}
+.screen2 li div p span{display:block;height:0px;opacity:0;transition:1.5s;font-size:15px;}
+.screen2_final li{transform:none;opacity:1;}
+.screen2_final li:nth-child(1){transition-delay:.9s;}
+.screen2_final li:nth-child(2){transition-delay:1.2s;}
+.screen2_final li:nth-child(3){transition-delay:1.5s;}
+.screen2_final li:nth-child(4){transition-delay:1.8s;}
+.screen2_final li:nth-child(5){transition-delay:2.1s;}
+/*SCREEN 3*/
+.screen3{
+	/*background:url(../images/screen3_bg.jpg) no-repeat center;background-size:cover;*/
+	display:-moz-box;		-moz-box-pack:center;		-moz-box-align:center;
+	display:-webkit-box;	-webkit-box-pack:center;	-webkit-box-align:center;
+	display:box;			box-pack:center;			box-align:center;
+}
+.screen3 .parallax{background-image:url(../images/screen3_bg.jpg)}
+.screen3 .jobs{width:68%;height:60%;color:white;overflow:hidden;position:relative;transition:1s 1s ease-in-out;opacity:0;transform:translateY(-7%);margin-top:12px;/*为了让出arrow的动画Y轴平移空间，并保证绝对垂直居中*/}
+.screen3 .jobs_list{font-size:14px;line-height:2;height:86%;position:absolute;left:0;transition:left 1s ease-in-out;
+			width:200%;/*总数量乘以100%*/
+			}
+.screen3 .jobs_list li{float:left;height:100%;overflow:auto;
+			width:50%;/*100%除以总数量*/
+			}
+.screen3 .jobs_list li h2{font-size:20px;margin-bottom:20px;}
+.screen3 .jobs_list li .jobs_list_des_claim{overflow:hidden;}
+.screen3 .jobs_list li .jobs_list_des_claim dl{float:left;width:50%;display:-webkit-box;}
+.screen3 .jobs_list li .jobs_list_des_claim dl dd{-webkit-box-flex:1;}
+.screen3 .jobs_arrow{position:absolute;bottom:12px;z-index:99;}
+.screen3 .jobs_arrow span{float:left;margin-right:8px;background:white no-repeat center;width:80px;height:28px;cursor:pointer;border-radius:15px;transition:.3s;opacity:0;transform:translateY(12px);}
+.screen3 .jobs_arrow span:hover{background-color:#10963e;}
+.screen3 .jobs_arrow span.arrow_l{background-image:url(../images/arrow_l_green.png)}
+.screen3 .jobs_arrow span.arrow_l:hover{background-image:url(../images/arrow_l_white.png)}
+.screen3 .jobs_arrow span.arrow_r{background-image:url(../images/arrow_r_green.png)}
+.screen3 .jobs_arrow span.arrow_r:hover{background-image:url(../images/arrow_r_white.png)}
+.screen3_final .jobs{opacity:1;transform:none;}
+@keyframes arrow{
+	from{transform:translateY(12px);opacity:0;}to{transform:none;opacity:1;}
+}
+.screen3_final .jobs_arrow span{animation:arrow 1s 2s forwards;}
+.screen3_final .jobs_arrow span:nth-child(2){animation-delay:2.3s;}

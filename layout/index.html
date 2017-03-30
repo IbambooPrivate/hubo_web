@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>护博官网</title>
+<link href="stylesheet/common.css" rel="stylesheet" type="text/css">
+<link href="stylesheet/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function Scr(n,i){
+	nav_cur_class='cur';
+	pre_nav=document.querySelector('.'+nav_cur_class);
+	if(pre_nav)pre_nav.className=pre_nav.className.replace(' '+nav_cur_class,'');
+	nav=document.querySelector('.'+n);
+	nav.className=n+' '+nav_cur_class;
+	//screen
+	scrFrame=document.getElementById('scr');
+	scrFrame.style.top='-'+((i-1)*100)+'%';
+	scr=document.querySelector('.screen'+i);
+	scr.className='screen'+i+' screen'+i+'_final';
+	/*if(curscr){
+		pre=document.querySelector('.screen'+curscr);
+		pre.className='screen'+curscr;
+	}
+	curscr=i;*/
+}
+function jobs_scl(x){
+	ul=document.querySelector('.jobs_list');
+	lis=document.querySelectorAll('.jobs_list li');
+	cur_left=ul.style.left;
+	cur=cur_left?parseInt(Math.abs(cur_left.replace('%','')/100)+1):1;
+	sclto=cur+x;
+	if(sclto>lis.length)sclto=1;
+	if(sclto<1)sclto=lis.length;
+	ul.style.left='-'+parseInt((sclto-1)*100)+'%';
+}
+function ParallaxBg(){
+	zoom=6;//超出1的放大值(双边)，单位百分比
+	ele=event.currentTarget;
+	parallax=ele.querySelector('.parallax');//模拟背景的DOM
+	mouseCoordX=parseInt(event.clientX-ele.offsetLeft);
+	mouseCoordY=parseInt(event.clientY-ele.offsetTop);
+	prt=ele.offsetParent;
+	while(prt!=null){//减去父元素offset的影响
+		mouseCoordX-=prt.offsetLeft;
+		mouseCoordY-=prt.offsetTop;
+		prt=prt.offsetParent;
+	}
+	centerX=parseInt(ele.clientWidth/2);
+	centerY=parseInt(ele.clientHeight/2);
+	offsetX=mouseCoordX-centerX;
+	offsetY=mouseCoordY-centerY;
+	offsetX_pct=(offsetX/ele.clientWidth)*100;
+	offsetY_pct=(offsetY/ele.clientHeight)*100;
+	parallax.style.left=(-(zoom/2)+(-offsetX_pct*2*(zoom/2/100)))+'%';
+	parallax.style.top=(-(zoom/2)+(-offsetY_pct*2*(zoom/2/100)))+'%';
+}
+window.onload=function(){
+	Scr('about',1);
+};
+</script>
+</head>
+
+<body>
+<nav>
+	<h1 class="logo"><img src="images/logo.png" alt=""/></h1>
+	<ul class="navigation">
+		<li class="about"><a href="javascript:Scr('about',1);"></a></li>
+		<li class="services"><a href="javascript:Scr('services',2);"></a></li>
+		<li class="jobs"><a href="javascript:Scr('jobs',3);"></a></li>
+		<li class="contact"><a href="javascript:Scr('contact',4);"></a></li>
+	</ul>
+	<p class="copyright">护博医疗版权所有 &copy; 1997-2017<br>京ICP备12025925号 京ICP证010207号</p>
+</nav>
+<section>
+	<div class="all_screen" id="scr">
+		<article class="screen1" onMouseMove="ParallaxBg()">
+			<div class="parallax_content">
+				<div>
+					<h2>心怀万家，护博天下</h2>
+					<p>四川护博医疗科技有限公司成立于2016年，是一家旨在提供优质护理服务的互联网医疗平台改善传统护理服务，利用互联网+护理+基地的思维，以实体服务基地为中心，充分发挥护理服务的应用，打造集护理培训、人才输送、定制护理、实体中心等一体的个性健康服护理服务生态</p>
+				</div>
+			</div>
+			<div class="parallax"></div>
+		</article>
+		<article class="screen2">
+			<ul>
+				<li class="scr2_item1">
+					<p class="scr2_item_bg"></p>
+					<div>
+						<p>
+							<em>01</em>
+							<strong>护理实习基地</strong>
+							<span>专业的护理技术，一流的师资力量专业的护理技术，一流的师资力量</span>
+						</p>
+					</div>
+				</li>
+				<li class="scr2_item2">
+					<p class="scr2_item_bg"></p>
+					<div>
+						<p>
+							<em>02</em>
+							<strong>护理资质培训</strong>
+							<span>专业的护理技术，一流的师资力量专业的护理技术，一流的师资力量</span>
+						</p>
+					</div>
+				</li>
+				<li class="scr2_item3">
+					<p class="scr2_item_bg"></p>
+					<div>
+						<p>
+							<em>03</em>
+							<strong>护理人才输出</strong>
+							<span>专业的护理技术，一流的师资力量专业的护理技术，一流的师资力量</span>
+						</p>
+					</div>
+				</li>
+				<li class="scr2_item4">
+					<p class="scr2_item_bg"></p>
+					<div>
+						<p>
+							<em>04</em>
+							<strong>产妇护理及产后恢复</strong>
+							<span>专业的护理技术，一流的师资力量专业的护理技术，一流的师资力量</span>
+						</p>
+					</div>
+				</li>
+				<li class="scr2_item5">
+					<p class="scr2_item_bg"></p>
+					<div>
+						<p>
+							<em>05</em>
+							<strong>老年护理</strong>
+							<span>专业的护理技术，一流的师资力量专业的护理技术，一流的师资力量</span>
+						</p>
+					</div>
+				</li>
+			</ul>
+		</article>
+		<article class="screen3" onMouseMove="ParallaxBg()">
+			<div class="jobs">
+				<ul class="jobs_list">
+					<li>
+						<h2>PHP工程师(3名)</h2>
+						<div class="jobs_list_des">
+							<p>岗位薪资: 5000-8000</p>
+							<p>电话：1238451369 &nbsp;联系人：徐经理</p>
+							<div class="jobs_list_des_claim">
+								<dl>
+									<dt>任职要求：</dt>
+									<dd>1、一年以上Web商业开发经验；<br>
+									2、精通PHP，了解MVC架构，对Discuz熟悉者优先；<br>
+									3、精通MYSQL，熟悉数据库优化技术；<br>
+									4、精通HTML、XML、熟悉JavaScript、Ajax等客户端脚本编程。
+									</dd>
+								</dl>
+								<dl>
+									<dt>岗位职责：</dt>
+									<dd>1、负责公司基于PHP的网站系统开发；<br>
+									2、参与系统需求分析，并负责完成php核心代码；<br>
+									3、进行详细设计、代码开发，测试，高质量完成项目；<br>
+									4、独立解决开发中遇到的问题。编程。
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</li>
+					<li>
+						<h2>JAVA工程师(2名)</h2>
+						<div class="jobs_list_des">
+							<p>岗位薪资: 6000-9000</p>
+							<p>电话：13366669999 &nbsp;联系人：张经理</p>
+							<div class="jobs_list_des_claim">
+								<dl>
+									<dt>任职要求：</dt>
+									<dd>1、计算机软件或相关专业本科学历；<br>
+									2、熟练使用JSP、XML、Javascript、Servlet、Mybatis、Spring等技术；<br>
+									3、熟悉MySQL、Oracle、MongoDB数据库中的一种或以上几种；<br>
+									4、思路清晰，善于思考，能够独立分析和解决问题；<br>
+									5、有JAVA系统开发经验者优先。
+									</dd>
+								</dl>
+								<dl>
+									<dt>岗位职责：</dt>
+									<dd>1、负责客户端APP产品的工程设计、架构设计、开发工作；<br>
+									2、决创新研发过程中的关键问题和技术难点；<br>
+									3、根据项目任务计划按时完成软件编码和单元测试工作。
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="jobs_arrow">
+					<span class="arrow_l" onClick="jobs_scl(+1);"></span><span class="arrow_r" onClick="jobs_scl(-1);"></span>
+				</div>
+			</div>
+			<div class="parallax"></div>
+		</article>
+		<article class="screen4">
+			<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qbZBVlN0D9qYcufqgmRMeVbdjaiQq7Zw"></script>
+			<style>
+			#allmap{width:100%;height:100%;border-left:1px solid #10963e;}
+			.BMap_cpyCtrl{display:none;}
+			#map_info{color:#999;line-height:2;}
+			#map_info strong{display:block;text-align:center;color:#10963e;font-size:14px;border-bottom:1px solid #CCC;line-height:2.2;}
+			#map_info p{font-size:12px;}
+			</style>
+			<div id="allmap"></div>
+			<div id="map_info">
+				<strong>护博医疗</strong>
+				<p>电话：0816-5582268</p>
+				<p>地址：绵阳市涪城区三江大坝五里梁北路</p>
+				<p>邮箱：hubo@chinanursecare.com</p>
+			</div>
+			<script type="text/javascript">
+			map=new BMap.Map("allmap");
+			point=new BMap.Point(104.840726,31.407128);
+			marker=new BMap.Marker(point);
+			map.addOverlay(marker);
+			map.centerAndZoom(point,12);
+			map.enableScrollWheelZoom();
+			map.addControl(new BMap.NavigationControl());//左上比例尺
+			map.addControl(new BMap.ScaleControl({anchor:BMAP_ANCHOR_TOP_RIGHT}));//右上比例尺
+			map.addControl(new BMap.OverviewMapControl());//右下缩略图
+			map.addControl(new BMap.OverviewMapControl({isOpen:true,anchor:BMAP_ANCHOR_BOTTOM_RIGHT}));//右下缩略图开关
+			map.addControl(new BMap.GeolocationControl({offset:new BMap.Size(22,60)}));//左下定位按钮
+			opts={}
+			infoWindow=new BMap.InfoWindow(document.getElementById('map_info'),opts);
+			map.openInfoWindow(infoWindow,point);
+			marker.addEventListener("click",function(){
+				map.openInfoWindow(infoWindow,point);
+			});
+			</script>
+		</article>
+	</div>
+</section>
+</body>
+</html>
